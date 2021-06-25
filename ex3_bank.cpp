@@ -105,8 +105,8 @@ void clerk(std::vector<sync_account> &accounts) {
     std::chrono::time_point begin = std::chrono::steady_clock::now();
 
     for (;;) {
-        int from = dist(gen);
-        int to = dist(gen);
+        size_t from = dist(gen);
+        size_t to = dist(gen);
         if (from == to) {
             continue;
         }
