@@ -100,7 +100,7 @@ void usefull_work() {
 void clerk(std::vector<sync_account> &accounts) {
     std::random_device rd;
     std::default_random_engine gen(rd());
-    std::uniform_int_distribution<> dist(0, accounts.size() - 1);
+    std::uniform_int_distribution<size_t> dist(0, accounts.size() - 1);
 
     std::chrono::time_point begin = std::chrono::steady_clock::now();
 

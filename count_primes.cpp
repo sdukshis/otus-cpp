@@ -7,6 +7,7 @@
 #include <iostream>
 #include <numeric>
 #include <vector>
+#include <string>
 
 bool is_prime(int n) {
     if (n < 2) {
