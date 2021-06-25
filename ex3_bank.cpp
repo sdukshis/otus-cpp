@@ -7,6 +7,7 @@
 #include <mutex>
 #include <iostream>
 #include <random>
+#include <string>
 
 const int total_accounts = 10;
 const int max_initial_balance = 100;

@@ -22,6 +22,7 @@ foreach(target ${TARGETS})
     if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR
         CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
         target_compile_options(${target} PRIVATE "-Wall;-Wextra;-Werror;-pedantic")
+        target_link_libraries(${target} PUBLIC pthread)
     elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
         target_compile_options(${target} PRIVATE "/W4;/WX")
     endif()

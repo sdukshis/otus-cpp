@@ -5,6 +5,7 @@
 #include <iostream>
 #include <random>
 #include <thread>
+#include <string>
 
 const int initial_tickets_count = 100;
 const double lambda = 10;  // mean tickets sold per second
