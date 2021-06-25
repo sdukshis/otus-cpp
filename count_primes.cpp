@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
     }
 
     size_t nprimes =
-        transform_reduce(tasks.begin(), tasks.end(), 0, plus<size_t>{},
+        transform_reduce(tasks.begin(), tasks.end(), 0, plus<int>{},
                          [](auto &result) { return result.get(); });
     chrono::time_point end = chrono::high_resolution_clock::now();
     chrono::duration<double> elapsed = end - start;
