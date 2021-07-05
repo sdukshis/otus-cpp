@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.14)
 
 project(otus-cpp-lockfreeds CXX)
 
+find_package(Boost REQUIRED)
+
 file(GLOB SRC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
 
 foreach(src_file ${SRC_FILES})
@@ -11,11 +13,20 @@ foreach(src_file ${SRC_FILES})
     message("target added: ${target}")
 endforeach(src_file ${SRC_FILES})
 
+target_include_directories(is_prime.service.lockfree PUBLIC ${Boost_INCLUDE_DIRS})
+target_compile_options(is_prime.service.lockfree PUBLIC
+    -Wno-ambiguous-reversed-operator
+)
+
+target_include_directories(is_prime.service.lockfree.better PUBLIC ${Boost_INCLUDE_DIRS})
+target_compile_options(is_prime.service.lockfree.better PUBLIC
+    -Wno-ambiguous-reversed-operator
+)
 foreach(target ${TARGETS})
     if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR
         CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
         target_compile_options(${target} PRIVATE 
-            -O3
+            -O2
             -march=native
             -g
             -Wall
