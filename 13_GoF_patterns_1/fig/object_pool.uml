@@ -1,0 +1,25 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam dpi 300
+
+class Pool {
+    - objects
+
+    + object get()
+    + reclaim(Object object)
+}
+
+class Object {
+    - pool
+    + destroy()
+}
+
+note right of Object::destroy
+    pool.reclaim(this)
+end note
+
+Pool -right-o "0..*" Object 
+
+Object -left-> Pool
+
+@enduml

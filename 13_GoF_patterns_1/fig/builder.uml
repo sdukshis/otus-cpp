@@ -1,0 +1,31 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam dpi 300
+
+class Director {
+    builder: Builder
+    construct():
+}
+
+note left of Director::construct()
+    builder.buildPart()
+    object = builder.getObject()
+end note
+
+class Builder {
+    +buildPart(): Builder
+    +getObject(): ComplexObject
+}
+
+
+class ComplexObject {
+
+}
+
+Director -right-o Builder
+
+Director ..> ComplexObject: <<uses>>
+
+Builder .down.> ComplexObject: <<creates>> 
+
+@enduml

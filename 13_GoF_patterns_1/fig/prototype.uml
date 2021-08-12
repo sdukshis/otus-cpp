@@ -1,0 +1,29 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam dpi 300
+
+abstract class Prototype {
+    + Prototype clone()
+}
+
+class ConcretePrototype {
+    + Prototype clone()
+}
+
+note right of ConcretePrototype::clone
+    return copy of self
+end note
+
+ConcretePrototype -up-|> Prototype
+
+class Client {
+    - Prototype prototype
+    Prototype create_prototype()
+}
+
+note right of Client::create_prototype
+    return prototype.clone()
+end note
+
+Client -left-> Prototype
+@enduml

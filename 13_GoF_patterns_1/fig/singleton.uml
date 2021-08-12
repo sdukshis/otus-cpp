@@ -1,0 +1,14 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam dpi 300
+
+class Singleton {
+    {static} +Singleton& getInstance()
+    {static} -instance
+}
+
+note right of Singleton::getInstance
+    return instance
+end note
+
+@enduml

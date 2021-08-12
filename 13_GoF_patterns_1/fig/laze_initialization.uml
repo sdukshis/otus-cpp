@@ -1,0 +1,25 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam dpi 300
+
+class Object {
+    +process()
+}
+
+class Wrapper {
+    - object: Object
+    +process()
+}
+
+note right of Wrapper::process
+    object = Object()
+    return object.process()
+end note
+
+Wrapper -left-* Object
+
+class Client {
+}
+
+Client .up.> Wrapper: <<use>>
+@enduml

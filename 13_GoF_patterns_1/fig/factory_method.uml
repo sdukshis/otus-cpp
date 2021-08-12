@@ -1,0 +1,26 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam dpi 300
+
+abstract class Product
+
+class ConcreteProduct
+
+abstract class Creator {
+    + Product FactoryMethod()
+}
+
+class ConcreteCreator {
+    + Product FactoryMethod()
+}
+
+note right of ConcreteCreator::FactoryMethod
+    return ConcreteProduct
+end note
+
+ConcreteProduct -up-|> Product
+ConcreteCreator -up-|> Creator
+
+ConcreteCreator .left.> ConcreteProduct
+
+@enduml

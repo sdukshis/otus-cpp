@@ -1,0 +1,8 @@
+[requires]
+asio/1.19.2
+benchmark/1.5.3
+fmt/7.1.3
+gtest/1.11.0
+
+[generators]
+cmake

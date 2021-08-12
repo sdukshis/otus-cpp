@@ -1,0 +1,43 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam dpi 300
+
+abstract class ProductA
+abstract class ProductB
+
+class ConcreteProductA1
+class ConcreteProductA2
+class ConcreteProductB1
+class ConcreteProductB2
+
+ConcreteProductA1 -up-|> ProductA
+ConcreteProductA2 -up-|> ProductA
+
+ConcreteProductB1 -up-|> ProductB
+ConcreteProductB2 -up-|> ProductB
+
+abstract class AbstractFactory {
+    +createProductA()
+    +createProductB()
+}
+
+class ConcreteFactory1 {
+    +createProductA()
+    +createProductB()
+}
+
+class ConcreteFactory2 {
+    +createProductA()
+    +createProductB()
+}
+
+ConcreteFactory1 -up-|> AbstractFactory
+ConcreteFactory2 -up-|> AbstractFactory 
+
+ConcreteFactory1 .left.> ConcreteProductA1: <<create>>
+ConcreteFactory1 .left.> ConcreteProductB1: <<create>>
+
+ConcreteFactory2 .left.> ConcreteProductA2: <<create>>
+ConcreteFactory2 .left.> ConcreteProductB2: <<create>>
+
+@enduml

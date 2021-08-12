@@ -1,0 +1,25 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam dpi 300
+
+class User {
+    - dependency: Dependency
+    + constructor(Dependency dep)
+}
+
+note right of User::constructor
+    this.dependency = dep
+end note
+
+abstract class Dependency {
+    + process()
+}
+
+class ConcreteDependency {
+    + process()
+}
+
+ConcreteDependency -up-|> Dependency
+
+User -left-o Dependency
+@enduml
