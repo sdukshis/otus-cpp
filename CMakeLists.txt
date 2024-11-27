@@ -1,5 +1,6 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.10)
 
-project(otus-cpp CXX)
+project(otus-cpp-ml CXX)
 
-add_subdirectory(26_lockfreeds)
+add_subdirectory(kdd99)
+add_subdirectory(mnist)
